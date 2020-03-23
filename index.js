@@ -13,6 +13,11 @@ server.use((error, req, res, next)=>{
 
 
 
-server.listen(PORT, () => {
-  console.log(`\n=== Server listening on port ${PORT} ===\n`);
-});
+if (!module.parent) {
+	server.listen(PORT, () => {
+		console.log(`Running at http://localhost:${PORT}`)
+	})
+}
+
+
+module.exports = server
